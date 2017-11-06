@@ -1,0 +1,110 @@
+
+#FoodPointModal .modal-content, 
+#FoodPointModal .row,
+#FoodPointModal .game{
+  height: 100%;
+}
+
+#FoodPointRow .game  {
+  transform-style: preserve-3d;
+  perspective: 500px;
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+}
+
+#FoodPointRow .game .card {
+  float: left;
+  width: 32%;
+  height: 32%;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  position: relative;
+  cursor: pointer;
+  z-index: 50;
+  -webkit-tap-highlight-color: transparent;
+  
+  perspective: 500px;
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#FoodPointRow .game .card[data-id="2"]{
+  margin-left: 2% !important; 
+  margin-right: 2% !important;
+}
+
+#FoodPointRow .game .card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  background: white;
+}
+#FoodPointRow .game .card .inside.picked{
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+#FoodPointRow .game .card .front, 
+#FoodPointRow .game .card .back {
+
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+#FoodPointRow .game .card .back {
+  padding: 0px !important;
+}
+#FoodPointRow .game .card .front img, #FoodPointRow .game .card .back img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+}
+#FoodPointRow .game .card .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+@media (max-width: 800px) {
+  #FoodPointRow .game .card .front {
+    padding: 5px;
+  }
+}
+#FoodPointRow .game .card .back {
+  -webkit-transform: rotateX(0);
+          transform: rotateX(0);
+}
+@media (max-width: 800px) {
+  #FoodPointRow .game .card .back {
+    padding: 10px;
+  }
+}
+#FoodPointRow .game .card .front h2 {
+    font-size: 80px;
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    color: #4d4d4d;
+    text-shadow: 0px 3px 0 black;
+    margin-bottom: 0 !important;
+    line-height: 80px;
+    @include width(480px){
+      font-size: 60px;
+    }
+  }

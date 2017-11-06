@@ -502,12 +502,81 @@ $(document).ready(function(){
         var obj = {};
         CallAjax("/Food",obj,'POST',function (data) {
 
-            var tempStr = '';
-            var rand = getRandomInt(data.MinRange,data.MaxRange);
-            tempStr += '<div class="col s3"> <div class="card blue-grey TrivaCard" style="text-align: center;">  <div class="card-content white-text">'+
-                rand +'   </div></div></div>';
+          var rand1 = getRandomInt(data.MinRange,data.MaxRange);
+          var rand2 = getRandomInt(data.MinRange,data.MaxRange);
+          var rand3 = getRandomInt(data.MinRange,data.MaxRange);
 
-            $('#FoodPointRow').html(tempStr);
+          (function(){
+
+            var Memory = {
+
+              init: function(cards){
+                this.$game = $(".game");
+                this.cardsArray = cards;
+                this.shuffleCards(this.cardsArray);
+                this.setup();
+                this.binding();
+              },
+
+              shuffleCards: function(cardsArray){
+                this.$cards = $(this.shuffle(this.cardsArray));
+              },
+
+              setup: function(){
+                this.html = this.buildHTML();
+                this.$game.html(this.html);
+                this.$memoryCards = $(".card");
+              },
+
+              binding: function(){
+                this.$memoryCards.on("click", this.cardClicked);
+              },
+
+              cardClicked: function(){
+                var $card = $(this);
+                $('.picked').removeClass('picked');
+                $card.find(".inside").addClass("picked");
+              },
+
+              shuffle: function(array){
+                var counter = array.length, temp, index;
+                return array;
+              },
+
+              buildHTML: function(){
+                var frag = '';
+                this.$cards.each(function(k, v){
+                    frag += '<div class="card" data-id="'+ v.id +'"><div class="inside">\
+                    <div class="front"><h2>'+v.value+'</h2></div>\
+                    <div class="back"><img src="img/Food.png"\
+                    alt="FoodCard" /></div></div>\
+                    </div>';
+                });
+                return frag;
+              }
+            };
+
+            var cards = [
+              {
+                  name: "card1",
+                  value: rand1,
+                  id: 1,
+              },
+              {
+                  name: "card2",
+                  value: rand2,
+                  id: 2
+              },
+              {
+                  name: "card3",
+                  value: rand3,
+                  id: 3
+              },
+            ];
+
+            Memory.init(cards);
+
+          })();
             $('#FoodPointModal').modal('open');
         });
 
