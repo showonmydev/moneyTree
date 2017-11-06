@@ -1,0 +1,56 @@
+body { padding-top: 70px;}
+h5
+{
+    text-align: center;
+}
+@media (max-width : 600px){
+    .extra{
+        display: none;
+    }
+}
+
+@media (max-width : 400px){
+    h5{
+        text-align: left;
+        font-size: 10px;
+    }
+}
+#form_login {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.treeviaElement{
+    text-align: center;
+}
+.card{
+    border-radius: 8px;
+}
+.ClickedCard{
+    background: lightpink;
+    cursor: none;
+}
+.lifecard a{
+    text-decoration: none;
+}
+.ClickedCard a{
+    text-decoration: none;
+    cursor: default;
+}
+.Disablelifecard{
+    cursor: none;
+    background:lightgray;
+}
+.Disablelifecard a:hover{
+text-decoration: none;
+    cursor: default;
+}
+.Disablelifecard a{
+    text-decoration: none;
+    cursor:not-allowed;
+}
+.Disablelifecard{
+    text-decoration: none;
+    cursor:not-allowed;
+}
